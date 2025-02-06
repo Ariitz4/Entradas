@@ -68,7 +68,7 @@ class MainActivity : AppCompatActivity() {
         // Inicializar botones
         val btnPlay = findViewById<Button>(R.id.btnPlay)
         val btnStop = findViewById<Button>(R.id.btnStop)
-
+        val btnViewHistory = findViewById<Button>(R.id.btnViewHistory)
         // Listener para el botón "Play"
         btnPlay.setOnClickListener {
             this.semaforo="V"
@@ -96,6 +96,11 @@ class MainActivity : AppCompatActivity() {
             sharedPreferences.edit().putString("semaforo", semaforo).apply()
 
             stopWork()
+        }
+
+        btnViewHistory.setOnClickListener {
+            val historyDialog = HistoryDialog()
+            historyDialog.show(supportFragmentManager, "HistoryDialog")
         }
 
         // Listener para capturar cambios en el campo de texto de la URL
